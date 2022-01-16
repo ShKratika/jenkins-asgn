@@ -10,9 +10,9 @@ pipeline {
 
                 echo 'compiling..'
 
-		git url: 'https://github.com/lerndevops/DevOpsClassCodes'
+		git url: 'https://github.com/ShKratika/jenkins-asgn'
 
-		sh script: '/opt/apache-maven-3.8.3/bin/mvn compile'
+		sh script: '/usr/local/Cellar/maven/3.8.4 compile'
 
            }
 
@@ -24,7 +24,7 @@ pipeline {
 
                 echo 'codereview..'
 
-		sh script: '/opt/apache-maven-3.8.3/bin/mvn -P metrics pmd:pmd'
+		sh script: '/usr/local/Cellar/maven/3.8.4 -P metrics pmd:pmd'
 
            }
 
@@ -46,7 +46,7 @@ pipeline {
 
                 echo 'unittest..'
 
-	        sh script: '/opt/apache-maven-3.8.3/bin/mvn test'
+	        sh script: '/usr/local/Cellar/maven/3.8.4 test'
 
                  }
 
@@ -68,7 +68,7 @@ pipeline {
 
                 echo 'codecoverage..'
 
-		sh script: '/opt/apache-maven-3.8.3/bin/mvn cobertura:cobertura -Dcobertura.report.format=xml'
+		sh script: '/usr/local/Cellar/maven/3.8.4 cobertura:cobertura -Dcobertura.report.format=xml'
 
            }
 
@@ -90,7 +90,7 @@ pipeline {
 
                 echo 'package..'
 
-		sh script: '/opt/apache-maven-3.8.3/bin/mvn package'	
+		sh script: '/usr/local/Cellar/maven/3.8.4 package'	
 
            }		
 
